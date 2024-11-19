@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.2
 
       - name: build image and push to docker hub
-        uses: docker/build-push-action@v1.1.0
+        uses: docker/build-push-action@v6.9.0
         with:
           username: wilsonbl
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -24,10 +24,10 @@ jobs:
     needs: build
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.2
 
       - name: kustomize
-        uses: imranismail/setup-kustomize@v1
+        uses: imranismail/setup-kustomize@v2.1.0
         with:
           kustomize_version: v3.6.1
 
